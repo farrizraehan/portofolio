@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Penjualan</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .table-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow-x: auto; /* Scroll horizontal jika tabel terlalu panjang */
+        }
+        table {
+            border-collapse: collapse;
+            white-space: nowrap; /* Mencegah teks turun */
+            width: auto; /* Agar tabel hanya selebar konten */
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Laporan Penjualan</h2>
+
+    <!-- Tabel Data Penjualan -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Bulan</th>
+                    <th>Januari</th>
+                    <th>Februari</th>
+                    <th>Maret</th>
+                    <th>April</th>
+                    <th>Mei</th>
+                    <th>Juni</th>
+                    <th>Juli</th>
+                    <th>Agustus</th>
+                    <th>September</th>
+                    <th>Oktober</th>
+                    <th>November</th>
+                    <th>Desember</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>2022</th>
+                    <td>4,017</td>
+                    <td>6,135</td>
+                    <td>7,091</td>
+                    <td>5,841</td>
+                    <td>5,036</td>
+                    <td>4,547</td>
+                    <td>3,467</td>
+                    <td>3,970</td>
+                    <td>6,313</td>
+                    <td>3,595</td>
+                    <td>9,207</td>
+                    <td>5,945</td>
+                </tr>
+                <tr>
+                    <th>2023</th>
+                    <td>2,416</td>
+                    <td>4,136</td>
+                    <td>7,935</td>
+                    <td>8,004</td>
+                    <td>9,505</td>
+                    <td>5,026</td>
+                    <td>6,108</td>
+                    <td>6,343</td>
+                    <td>9,404</td>
+                    <td>9,280</td>
+                    <td>9,287</td>
+                    <td>8,689</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Grafik Chart -->
+    <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+    </div>
+
+    <script>
+        // Data Penjualan
+        const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        const penjualan2022 = [4017, 6135, 7091, 5841, 5036, 4547, 3467, 3970, 6313, 3595, 9207, 5945];
+        const penjualan2023 = [2416, 4136, 7935, 8004, 9505, 5026, 6108, 6343, 9404, 9280, 9287, 8689];
+
+        // Membuat Chart menggunakan Chart.js
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: bulan,
+                datasets: [
+                    {
+                        label: '2022',
+                        data: penjualan2022,
+                        backgroundColor: 'rgba(75, 192, 192, 0.7)', // Hijau
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '2023',
+                        data: penjualan2023,
+                        backgroundColor: 'rgba(255, 206, 86, 0.7)', // Kuning
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penjualan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Bulan'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
