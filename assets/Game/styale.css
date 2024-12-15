@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://wallpapers.com/images/high/chalk-style-tetris-art-4ptbszbqasqojzmp.webp'); 
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    color: white; 
+}
+
+#wrapper {
+    display: inline-block;
+    margin: 20px;
+}
+
+#left-div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20 20 20;
+    padding: 20;
+    border: solid 1px white;
+    width: 286px;
+    height: 572.325px;
+}
+
+#logo {
+    width: 160px;
+    margin-bottom: 15px;
+}
+
+#game-container {
+    position: relative;
+    display: inline-block;
+}
+
+#background {
+    z-index: -1;
+}
+
+#game-canvas {
+    position: absolute;
+}
+
+#score-div,
+#lines-div {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-align: left;
+    margin: 15 0;
+}
