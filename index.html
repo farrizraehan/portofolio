@@ -82,7 +82,7 @@
     </div>
   </section>
 
-  <!-- Main -->
+ <!-- Main -->
   <main id="main">
     <!-- Section - Portfolio -->
     <!-- Project 2 - Bootstrap Brain Component -->
@@ -90,55 +90,67 @@
       <div class="container mb-5 mb-md-6 mb-xl-10">
         <div class="row justify-content-md-center">
           <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
-            <h2 class="display-3 fw-bolder mb-4"> <mark class="bsb-tpl-highlight bsb-tpl-highlight-yellow"><span class="bsb-tpl-font-hw display-1 text-accent fw-normal">MY</span></mark> Portofolio.</h2>
+            <h2 class="display-3 fw-bolder mb-4">
+              <mark class="bsb-tpl-highlight bsb-tpl-highlight-yellow">
+                <span class="bsb-tpl-font-hw display-1 text-accent fw-normal">MY</span>
+              </mark> Portofolio.
+            </h2>
           </div>
         </div>
       </div>
 
+       <!-- Filter Buttons -->
+    <div class="text-center mb-4">
+      <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+      <button class="btn btn-secondary filter-btn" data-filter="Projek">Projek</button>
+      <button class="btn btn-secondary filter-btn" data-filter="Certificate">Certificate</button>
+    </div>
         <div class="task-items">
+          
            
-           <a href="./assets/From login/index.html" class="task-item" target="_blank">
-                <img src="./assets/img/portfolio/Backgroud.png" alt="Form Login ">
-                <span>Form Login</span>
-            </a>
-      <a href="https://www.sololearn.com/certificates/CC-LYLHSH4L" class="task-item" target="_blank">
+
+      <a href="https://www.sololearn.com/certificates/CC-LYLHSH4L" class="task-item Certificate" target="_blank">
           <img src="./assets/img/portfolio/Project 1.jpg" alt="Introduction to HTML">
                 <span>Introduction to HTML </span>
       </a>
-            <a href="https://www.sololearn.com/certificates/CC-USBISGCK" class="task-item" target="_blank">
+            <a href="https://www.sololearn.com/certificates/CC-USBISGCK" class="task-item Certificate" target="_blank">
           <img src="./assets/img/portfolio/Project 5.jpg" alt=" Introduction to CSS">
                 <span>Introduction to CSS </span>
       </a>
-      <a href="https://www.sololearn.com/certificates/CC-G1NJJTYE" class="task-item" target="_blank">
+      <a href="https://www.sololearn.com/certificates/CC-G1NJJTYE" class="task-item Certificate" target="_blank">
           <img src="./assets/img/portfolio/Project 6.jpg" alt="Introduction to JavaScript">
                 <span>Introduction to JavaScript</span>
       </a>
       
-      <a href="./assets/Calculator/index.html" class="task-item" target="_blank">
+      <a href="https://www.sololearn.com/certificates/CC-ZCTMFSPE" class="task-item Certificate" target="_blank">
+        <img src="./assets/img/portfolio/project 7.jpg" alt="Java Intermediate">
+        <span>Java Intermediate</span>
+    </a>
+  
+    <a href="https://www.sololearn.com/certificates/CC-GQKKVKIB" class="task-item Certificate" target="_blank">
+      <img src="./assets/img/portfolio/project 8.jpg" alt="Java Intermediate">
+      <span>Java Intermediate</span>
+  </a>
+  
+      <a href="./assets/Calculator/index.html" class="task-item Projek" target="_blank">
         <img src="./assets/img/portfolio/project 2.png" alt="Calculator">
               <span>Calculator</span>
     </a>
-
-          <a href="https://www.sololearn.com/certificates/CC-ZCTMFSPE" class="task-item" target="_blank">
-      <img src="./assets/img/portfolio/project 7.jpg" alt="Java Intermediate">
-      <span>Java Intermediate</span>
+    <a href="./assets/From login/index.html" class="task-item Projek" target="_blank">
+      <img src="./assets/img/portfolio/Backgroud.png" alt="Form Login ">
+      <span>Form Login</span>
   </a>
-          <a href="https://www.sololearn.com/certificates/CC-GQKKVKIB" class="task-item" target="_blank">
-    <img src="./assets/img/portfolio/project 8.jpg" alt="Javascript Intermediate">
-    <span>Javascript Intermediate</span>
-</a>
-      <a href="./assets/Game/index.html" class="task-item" target="_blank">
+
+<a href="./assets/Game/index.html" class="task-item Projek" target="_blank">
   <img src="./assets/Game/resources/Tampilan.png" alt="Game Tetris">
   <span>Game Tetris</span>
 </a>
-          <a href="./assets/Diagram/index.html" class="task-item" target="_blank">
+
+<a href="./assets/Diagram/index.html" class="task-item Projek" target="_blank">
   <img src="./assets/Diagram/diagram .png" alt="Diagram">
   <span>Diagram</span>
 </a>
-           <a href="https://farrizraehan.github.io/UTS/kar.html" class="task-item" target="_blank">
-  <img src="./assets/img/portfolio/project 9.png" alt="Admin Dashbord Frontend">
-  <span>Admin Dashbord Frontend</span>
-</a>
+      
             </div>
            </div>    
         </div>
@@ -146,6 +158,28 @@
 
 
     </section>
+
+    <script>
+      // Filter functionality
+      document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+    
+          // Update active button styles
+          document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('btn-primary'));
+          button.classList.add('btn-primary');
+    
+          // Filter items
+          document.querySelectorAll('.task-item').forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
 
     <!-- Section - About -->
     <section id="scrollspyAbout" class="bsb-tpl-bg-alice-blue py-5 py-xl-8 bsb-section-py-xxl-1">
